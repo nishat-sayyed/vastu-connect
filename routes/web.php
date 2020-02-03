@@ -39,3 +39,12 @@ Route::name('agent.')->prefix('agent')->group(function () {
         Route::get('home', 'AgentController@index')->name('home');
     });
 });
+
+Route::name('employee.')->prefix('employee')->group(function () {
+    Route::match(['get', 'post'], 'login', 'Auth\LoginController@employeeLogin')->name('login');
+
+    Route::middleware('auth:employee')->group(function () {
+        Route::redirect('/', 'home');
+        Route::get('home', 'EmployeeController@index')->name('home');
+    });
+});
