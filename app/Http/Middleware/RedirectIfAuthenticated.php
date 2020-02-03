@@ -26,6 +26,10 @@ class RedirectIfAuthenticated
             return redirect()->route('agent.home');
         }
 
+        if ($guard == "employee" && Auth::guard($guard)->check()) {
+            return redirect()->route('employee.home');
+        }
+
         if (Auth::guard($guard)->check()) {
             return redirect()->route('home');
         }

@@ -51,6 +51,11 @@ return [
             'provider' => 'agents',
         ],
 
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -89,6 +94,11 @@ return [
         'agents' => [
             'driver' => 'eloquent',
             'model' => App\Agent::class,
+        ],
+
+        'employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Employee::class,
         ],
 
         // 'users' => [
