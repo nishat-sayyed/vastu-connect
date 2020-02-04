@@ -48,3 +48,8 @@ Route::name('employee.')->prefix('employee')->group(function () {
         Route::get('home', 'EmployeeController@index')->name('home');
     });
 });
+
+Route::resource('property', 'PropertyController');
+Route::resource('agent', 'AgentController');
+Route::resource('employee', 'EmployeeController');
+Route::resource('customer', 'CustomerController');

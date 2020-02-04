@@ -19,4 +19,9 @@ class Admin extends Authenticate
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function image()
+    {
+        $this->morphOne('App\Image', 'imageable');
+    }
 }
