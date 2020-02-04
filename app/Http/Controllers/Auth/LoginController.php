@@ -43,10 +43,9 @@ class LoginController extends Controller
         $this->middleware('guest:employee')->except('logout');
     }
 
-
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function adminLogin(Request $request)
@@ -59,7 +58,7 @@ class LoginController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function loginAdmin(Request $request)
@@ -73,12 +72,12 @@ class LoginController extends Controller
 
             return redirect()->intended(route('admin.home'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return $this->sendFailedLoginResponse($request);
     }
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function agentLogin(Request $request)
@@ -91,7 +90,7 @@ class LoginController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function loginAgent(Request $request)
@@ -105,12 +104,12 @@ class LoginController extends Controller
 
             return redirect()->intended(route('agent.home'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return $this->sendFailedLoginResponse($request);
     }
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function employeeLogin(Request $request)
@@ -123,7 +122,7 @@ class LoginController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function loginEmployee(Request $request)
@@ -137,7 +136,7 @@ class LoginController extends Controller
 
             return redirect()->intended(route('employee.home'));
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return $this->sendFailedLoginResponse($request);
     }
 
 }
