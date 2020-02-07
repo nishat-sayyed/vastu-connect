@@ -11,13 +11,13 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item active"><a href="{{ route('admin.home') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+            <li class=" nav-ite'"><a href="{{ route('admin.home') }}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
             </li>
             <li class=" navigation-header"><span>Properties</span>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-map-pin"></i><span class="menu-title">Properties</span></a>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-plus-square"></i><span class="menu-title">New Property</span></a>
+            <li class=" nav-item"><a href="{{ route('admin.property.add') }}"><i class="feather icon-plus-square"></i><span class="menu-title">New Property</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-trending-up"></i><span class="menu-title">Booked Properties</span></a>
             </li>

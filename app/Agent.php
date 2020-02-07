@@ -11,6 +11,7 @@ class Agent extends Authenticate
     use Notifiable;
 
     protected $guard = 'agent';
+    protected $guarded = [];
 
     protected $fillable = [
         'name', 'email', 'password',
@@ -19,4 +20,9 @@ class Agent extends Authenticate
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'imageable');
+    }
 }

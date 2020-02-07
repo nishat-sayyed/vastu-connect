@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard ecommerce - Vuexy - Bootstrap HTML admin template</title>
+    <title>@yield('title') - Vastu Connect</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
@@ -44,12 +44,12 @@
 <body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
 
 <!-- BEGIN: Header-->
-@include('admin.panels.header')
+@include('panels.header')
 <!-- END: Header-->
 
 
 <!-- BEGIN: Main Menu-->
-@include('admin.panels.menu')
+@include('panels.menu')
 <!-- END: Main Menu-->
 
 <!-- BEGIN: Content-->
@@ -60,7 +60,7 @@
 <div class="drag-target"></div>
 
 <!-- BEGIN: Footer-->
-@include('admin.panels.footer')
+@include('panels.footer')
 <!-- END: Footer-->
 
 
@@ -80,6 +80,7 @@
 
 <!-- BEGIN: Page JS-->
 @yield('pagescript')
+@yield('script')
 <!-- END: Page JS-->
 
 </body>

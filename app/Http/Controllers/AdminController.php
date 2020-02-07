@@ -14,6 +14,10 @@ class AdminController extends Controller
     {
     }
 
+    public function home()
+    {
+        return view('admin.home');
+    }
 
     /**
      * Display a listing of the resource.
@@ -22,7 +26,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
     }
 
     /**

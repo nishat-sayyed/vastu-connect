@@ -8,6 +8,6 @@ class Property extends Model
 {
     public function images()
     {
-        $this->morphMany('App\Image', 'imageable');
+        return $this->morphMany('App\Image', 'imageable');
     }
 }
