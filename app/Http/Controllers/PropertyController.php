@@ -20,11 +20,11 @@ class PropertyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('property.create');
     }
 
     /**
@@ -81,5 +81,11 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         //
+    }
+
+    public function validateRequest(Request $request) {
+        return $request->validate([
+            // validate property data
+        ]);
     }
 }

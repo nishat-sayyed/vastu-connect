@@ -22,6 +22,6 @@ class Admin extends Authenticate
 
     public function image()
     {
-        $this->morphOne('App\Image', 'imageable');
+        return $this->morphOne('App\Image', 'imageable');
     }
 }

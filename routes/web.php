@@ -27,7 +27,13 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::redirect('/', 'home');
-        Route::get('home', 'AdminController@index')->name('home');
+        Route::get('home', 'AdminController@home')->name('home');
+
+        Route::get('property/add', 'PropertyController@create')->name('property.add');
+
+        Route::get('agent/add', 'AgentController@create')->name('agent.create');
+        Route::post('agent', 'AgentController@store')->name('agent.store');
+        Route::get('agent', 'AgentController@index')->name('agent.index');
     });
 });
 
@@ -36,7 +42,7 @@ Route::name('agent.')->prefix('agent')->group(function () {
 
     Route::middleware('auth:agent')->group(function () {
         Route::redirect('/', 'home');
-        Route::get('home', 'AgentController@index')->name('home');
+        Route::get('home', 'AgentController@home')->name('home');
     });
 });
 
@@ -49,7 +55,5 @@ Route::name('employee.')->prefix('employee')->group(function () {
     });
 });
 
-Route::resource('property', 'PropertyController');
-Route::resource('agent', 'AgentController');
 Route::resource('employee', 'EmployeeController');
 Route::resource('customer', 'CustomerController');

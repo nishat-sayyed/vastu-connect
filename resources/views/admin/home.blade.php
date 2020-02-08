@@ -1,5 +1,7 @@
 @extends('base')
 
+@section('title', 'Dashboard')
+
 @section('pagecss')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/dashboard-ecommerce.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/pages/card-analytics.css') }}">

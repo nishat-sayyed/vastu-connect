@@ -13,10 +13,15 @@ class Agent extends Authenticate
     protected $guard = 'agent';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'mobile_no', 'commission', 'code'
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'imageable');
+    }
 }

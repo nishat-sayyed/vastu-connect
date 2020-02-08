@@ -1,5 +1,6 @@
 <?php
 
+use App\Property;
 use Illuminate\Database\Seeder;
 
 class PropertySeeder extends Seeder
@@ -11,6 +12,6 @@ class PropertySeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Property::class, 5)->create();
     }
 }
