@@ -82,4 +82,10 @@ class PropertyController extends Controller
     {
         //
     }
+
+    public function validateRequest(Request $request) {
+        return $request->validate([
+            // validate property data
+        ]);
+    }
 }

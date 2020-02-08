@@ -11,10 +11,9 @@ class Agent extends Authenticate
     use Notifiable;
 
     protected $guard = 'agent';
-    protected $guarded = [];
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'mobile_no', 'commission', 'code'
     ];
 
     protected $hidden = [

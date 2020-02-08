@@ -20,7 +20,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('agent.index');
+        $agents = Agent::all();
+        return view('agent.index', compact('agents'));
     }
 
     /**
@@ -44,10 +45,12 @@ class AgentController extends Controller
     {
         $validatedData = $this->validateRequest($request);
         $validatedData['password'] = bcrypt($validatedData['password']);
+
         // TODO: Change the code according to business requirement.
         $validatedData['code'] = strtoupper(\Illuminate\Support\Str::random(6));
         // TODO: Change comission according to Agent level or Admin/Agent ::class.
         $validatedData['commission'] = 25;
+
         $agent = new Agent($validatedData);
         $agent->save();
 
@@ -59,7 +62,7 @@ class AgentController extends Controller
             'url' => $imagePath
         ]);
 
-        return redirect()->route('admin.home');
+        return redirect()->route('admin.agent.index');
     }
 
     /**

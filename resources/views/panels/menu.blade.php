@@ -21,6 +21,12 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-trending-up"></i><span class="menu-title">Booked Properties</span></a>
             </li>
+            <li class=" navigation-header"><span>Agents</span>
+            </li>
+            <li class=" nav-item"><a href="{{ route('admin.agent.index') }}"><i class="feather icon-users"></i><span class="menu-title">Agents</span></a>
+            </li>
+            <li class=" nav-item"><a href="{{ route('admin.agent.create') }}"><i class="feather icon-user-plus"></i><span class="menu-title">New Agent</span></a>
+            </li>
         </ul>
     </div>
 </div>
