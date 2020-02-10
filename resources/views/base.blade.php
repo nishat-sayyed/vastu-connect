@@ -16,6 +16,7 @@
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/vendors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/charts/apexcharts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/extensions/toastr.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -29,6 +30,7 @@
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/core/menu/menu-types/vertical-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/core/colors/palette-gradient.css') }}">
+
     @yield('pagecss')
     <!-- END: Page CSS-->
 
@@ -81,6 +83,8 @@
 <!-- BEGIN: Page JS-->
 @yield('pagescript')
 @yield('script')
+
+@include('panels.flash_messages')
 <!-- END: Page JS-->
 
 </body>

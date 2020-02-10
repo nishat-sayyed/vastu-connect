@@ -3,12 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticate;
 use Illuminate\Notifications\Notifiable;
 
 class Agent extends Authenticate
 {
     use Notifiable;
+    use SoftDeletes;
 
     protected $guard = 'agent';
 
@@ -23,5 +25,10 @@ class Agent extends Authenticate
     public function image()
     {
         return $this->morphOne('App\Image', 'imageable');
+    }
+
+    public function agentable()
+    {
+        return $this->morphTo();
     }
 }

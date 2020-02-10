@@ -5,6 +5,9 @@
 @section('pagecss')
     <!-- bootstrap file input -->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/tables/datatable/datatables.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/extensions/sweetalert2.min.css') }}">
 @endsection
 
 
@@ -20,11 +23,9 @@
                             <h2 class="content-header-title float-left mb-0">Your Agents</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">Agents</a>
-                                    </li>
-                                    <li class="breadcrumb-item active"><a href="#">Agents</a>
+                                    <li class="breadcrumb-item active"><a href="{{ route('admin.agent.index') }}">Agents</a>
                                     </li>
                                 </ol>
                             </div>
@@ -43,6 +44,8 @@
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
+                                        <a href="{{ route('admin.agent.create') }}" class="btn btn-success float-right">Add
+                                            new agent</a>
                                         <div class="table-responsive">
                                             <table class="table zero-configuration">
                                                 <thead>
@@ -60,12 +63,28 @@
                                                 @foreach($agents as $agent)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td><strong>{{ $agent->code }}</strong></td>
-                                                        <td><img height="100px" width="100px" src="{{ asset($agent->image->url) }}" alt="Agent Image"></td>
+                                                        <td><strong><a
+                                                                    href="{{ route('admin.agent.show', $agent->id) }}">{{ $agent->code }}</a></strong>
+                                                        </td>
+                                                        <td><img height="100px" width="100px"
+                                                                 src="{{ asset($agent->image->url) }}"
+                                                                 alt="Agent Image"></td>
                                                         <td>{{ $agent->name }}</td>
                                                         <td>{{ $agent->mobile_no }}</td>
                                                         <td>{{ $agent->commission }}%</td>
-                                                        <td><a href="#" class="btn btn-primary">View</a></td>
+                                                        <td>
+                                                            <a href="{{ route('admin.agent.show', $agent->id) }}"
+                                                               class="btn btn-icon btn-icon rounded-circle btn-outline-primary mb-1">
+                                                                <i class="feather icon-eye"></i></a>
+                                                            <a href="{{ route('admin.agent.edit', $agent->id) }}"
+                                                               class="btn btn-icon btn-icon rounded-circle btn-outline-warning mb-1">
+                                                                <i class="feather icon-edit"></i></a>
+                                                            <button id="confirm-delete" class="btn btn-icon btn-icon rounded-circle btn-outline-danger mb-1"><i class="feather icon-trash-2"></i></button>
+                                                            <form id="delete-form" action="{{ route('admin.agent.destroy', $agent->id) }}" method="post">
+                                                                @csrf
+                                                                @method('delete')
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
@@ -103,10 +122,32 @@
     <script src="{{ asset('vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
     <script src="{{ asset('vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
+
+    <script src="{{ asset('vendors/js/extensions/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('vendors/js/extensions/polyfill.min.js') }}"></script>
 @endsection
 
 @section('script')
     <script>
         $('.zero-configuration').DataTable();
+
+        $('#confirm-delete').on('click', function () {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                confirmButtonClass: 'btn btn-primary',
+                cancelButtonClass: 'btn btn-danger ml-1',
+                buttonsStyling: false,
+            }).then(function (result) {
+                if (result.value) {
+                    $('#delete-form').submit();
+                }
+            })
+        });
     </script>
 @endsection
