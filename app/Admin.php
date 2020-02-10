@@ -24,4 +24,9 @@ class Admin extends Authenticate
     {
         return $this->morphOne('App\Image', 'imageable');
     }
+
+    public function agents()
+    {
+        return $this->morphMany('App\Agent', 'agentable');
+    }
 }
