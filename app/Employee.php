@@ -12,7 +12,7 @@ class Employee extends Authenticate
     protected $guard = 'employee';
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'code', 'mobile_no'
     ];
 
     protected $hidden = [

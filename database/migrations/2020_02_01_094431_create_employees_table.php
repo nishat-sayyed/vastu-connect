@@ -18,6 +18,8 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('mobile_no');
+            $table->string('code');
             $table->rememberToken();
             $table->timestamps();
         });

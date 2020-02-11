@@ -6,8 +6,8 @@
     <!-- bootstrap file input -->
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/tables/datatable/datatables.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/animate/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/extensions/sweetalert2.min.css') }}">
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/animate/animate.css') }}">--}}
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/css/extensions/sweetalert2.min.css') }}">--}}
 @endsection
 
 
@@ -79,11 +79,6 @@
                                                             <a href="{{ route('admin.agent.edit', $agent->id) }}"
                                                                class="btn btn-icon btn-icon rounded-circle btn-outline-warning mb-1">
                                                                 <i class="feather icon-edit"></i></a>
-                                                            <button id="confirm-delete" class="btn btn-icon btn-icon rounded-circle btn-outline-danger mb-1"><i class="feather icon-trash-2"></i></button>
-                                                            <form id="delete-form" action="{{ route('admin.agent.destroy', $agent->id) }}" method="post">
-                                                                @csrf
-                                                                @method('delete')
-                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -123,31 +118,12 @@
     <script src="{{ asset('vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
 
-    <script src="{{ asset('vendors/js/extensions/sweetalert2.all.min.js') }}"></script>
-    <script src="{{ asset('vendors/js/extensions/polyfill.min.js') }}"></script>
+{{--    <script src="{{ asset('vendors/js/extensions/sweetalert2.all.min.js') }}"></script>--}}
+{{--    <script src="{{ asset('vendors/js/extensions/polyfill.min.js') }}"></script>--}}
 @endsection
 
 @section('script')
     <script>
         $('.zero-configuration').DataTable();
-
-        $('#confirm-delete').on('click', function () {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                confirmButtonClass: 'btn btn-primary',
-                cancelButtonClass: 'btn btn-danger ml-1',
-                buttonsStyling: false,
-            }).then(function (result) {
-                if (result.value) {
-                    $('#delete-form').submit();
-                }
-            })
-        });
     </script>
 @endsection

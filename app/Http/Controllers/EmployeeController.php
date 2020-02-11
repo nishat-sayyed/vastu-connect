@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
+    public function home()
+    {
+        return view('employee.home');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee.index');
+
     }
 
     /**
