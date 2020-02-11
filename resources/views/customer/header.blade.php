@@ -7,7 +7,7 @@
         <li><a href="{{route('services')}}">OUR SERVICES</a></li>
         <li class="drop-menu">
             <a href="#">
-                PROJECTS
+                PROJECTS main
             </a>
 
         </li>
