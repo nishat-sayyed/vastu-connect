@@ -520,7 +520,7 @@ function initMap() {
             position: pos,
             map: map,
             icon: {
-                url: "sections/map-and-form/assets/marker.svg",
+                url: "sections/map-and-form/customer/marker.svg",
                 scaledSize: new google.maps.Size(56, 78)
             }
         });

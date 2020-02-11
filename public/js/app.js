@@ -39017,7 +39017,7 @@ function mergeOptions (
 /**
  * Resolve an asset.
  * This function is used because child instances need access
- * to assets defined in its ancestor chain.
+ * to customer defined in its ancestor chain.
  */
 function resolveAsset (
   options,
@@ -42618,7 +42618,7 @@ function initExtend (Vue) {
     Sub.use = Super.use;
 
     // create asset registers, so extended classes
-    // can have their private assets too.
+    // can have their private customer too.
     ASSET_TYPES.forEach(function (type) {
       Sub[type] = Super[type];
     });

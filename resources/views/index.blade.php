@@ -1,83 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('customer/base')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vastu Connect - Vastu Connect-Architect HTML5 Template</title>
-    <script src="../../../oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="../../../oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="css/features-basic.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="theme-container basic basic-dark-theme">
-    <div class="theme-switch">
-        <div class="theme-switch__icon-inner">
-            <i class="theme-switch__icon fa fa-cog" aria-hidden="true"></i>
-        </div>
-        <div class="theme-switch__buttons-inner">
-            <a class="theme-switch__layout-link" href="home2.html">ALTERNATIVE DESIGN</a>
-            <button class="theme-switch__button" id="theme-switch-button">
-                <span class="theme-switch__button-value" id="light-btn-text">LIGHT THEME</span>
-                <span class="theme-switch__button-value" id="dark-btn-text">DARK THEME</span>
-            </button>
-        </div>
-    </div>
-    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
-        <a class="navmenu-brand offcanvas-sm aside-brand" href="index.html">
-        </a>
-        <ul class="nav navmenu-nav">
-            <li class="active"><a href="#">HOME</a></li>
-            <li><a href="About_us.blade.php">ABOUT US</a></li>
-            <li><a href="Services.blade.php">OUR SERVICES</a></li>
-            <li class="drop-menu">
-                <a href="#">
-                    PROJECTS
-                    <div class="pull-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-                </a>
-                <div class="drop-wrap">
-                    <ul class="drop">
-                        <li>
-                            <a href="Project.blade.php">3&nbsp;COLUMN LAYOUT PROJECTS</a>
-                        </li>
-                        <li>
-                            <a href="Project_4col.blade.php">4&nbsp;COLUMN LAYOUT PROJECTS</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="#team" class="go_to">TEAM</a></li>
-            <li><a href="Blog.blade.php">BLOG</a></li>
-            <li><a href="#testimonials" class="go_to">TESTIMONIALS</a></li>
-            <li><a href="Contact.blade.php">CONTACT</a></li>
-        </ul>
-        <div class="nav-email">
-            <!-- <p><a href="../../../external.html?link=http://netgon.ru/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="761f18101936051e1a191d5815191b">[email&#160;protected]</a></p> -->
-            <!-- <p><a href="../../../external.html?link=http://netgon.ru/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d44435c58445f546d5e45414246034e4240">[email&#160;protected]</a></p> -->
-        </div>
-        <div class="nav-social">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <div class="navbar navbar-default navbar-fixed-top navbar-hid navbar-top-aside-menu">
-        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand brand-for-top-bar-in-aside-variant" href="#">
-        </a>
-    </div>
+@section('title', 'Homepage')
 
+@section('content')
     <div class="container-fluid section1-1">
         <div id="carousel_1" class="carousel slide" data-ride="carousel">
             <div class="container jumbotron_sec1-1">
@@ -767,36 +692,4 @@
 
 
     </div>
-    <div class="container-fluid footer">
-        <div class="brand10-1">
-            <img src="images/section10-1/logo_footer.png" alt="logo">
-        </div>
-        <div class="social10-1">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        </div>
-        <p>
-            &copy; 2020 - Vastu Connect
-        </p>
-
-    </div>
-</div>
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="javascript/jquery-1-11-1.js"></script>
-<script src="javascript/bootstrap.min.js"></script>
-<script src="javascript/jasny-bootstrap.min.js"></script>
-<script src="javascript/swiper.min.js"></script>
-<script src="javascript/jquery.counterup.min.js"></script>
-<script src="javascript/waypoints.min.js"></script>
-<script src="javascript/counterUp.js"></script>
-<script src="javascript/progressbar.min.js"></script>
-<script src="javascript/noframework.waypoints.js"></script>
-<script src="javascript/imagesloaded.pkgd.min.js"></script>
-<script src="javascript/isotope.pkgd.min.js"></script>
-<script src="../../../external.html?link=https://maps.googleapis.com/maps/api/js?key=AIzaSyAnXGpGheHG3Fj7bgN1EYRgMlBDJIbZ67w" defer></script>
-<script src="javascript/common.js" defer></script>
-</body>
-
-<!-- Mirrored from netgon.ru/themeforest/Vastu Connect-architect/index.html by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 24 Jan 2020 13:17:09 GMT -->
-</html>
+@endsection

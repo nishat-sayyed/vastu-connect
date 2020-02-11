@@ -16,7 +16,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+
+Route::get('about', function () {
+    return view('About_us');
+})->name('about');
+
+Route::get('services', function () {
+    return view('Services');
+})->name('services');
+
+Route::get('blog', function () {
+    return view('Blog');
+})->name('blog');
+
+Route::get('project', function () {
+    return view('Project');
+})->name('project');
+
+Route::get('contact', function () {
+    return view('Contact');
+})->name('contact');
 
 Auth::routes();
 

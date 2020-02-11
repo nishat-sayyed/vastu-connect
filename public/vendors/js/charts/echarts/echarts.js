@@ -21809,7 +21809,7 @@ var GlobalModel = Model.extend({
 
     /**
      * Get series list before filtered by type.
-     * FIXME: rename to getRawSeriesByType?
+     * FIXME: customer to getRawSeriesByType?
      *
      * @param {string} subType
      * @return {Array.<module:echarts/model/Series>}
@@ -88425,7 +88425,7 @@ var preprocessor$3 = function (option) {
             return;
         }
 
-        // rename splitList to pieces
+        // customer splitList to pieces
         if (has$2(opt, 'splitList') && !has$2(opt, 'pieces')) {
             opt.pieces = opt.splitList;
             delete opt.splitList;
