@@ -29,15 +29,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::redirect('/', 'home');
         Route::get('home', 'AdminController@home')->name('home');
 
-        Route::get('property/add', 'PropertyController@create')->name('property.add');
-
-        Route::get('agent/add', 'AgentController@create')->name('agent.create');
-        Route::post('agent', 'AgentController@store')->name('agent.store');
-        Route::get('agent', 'AgentController@index')->name('agent.index');
-        Route::get('agent/{agent}/edit', 'AgentController@edit')->name('agent.edit');
-        Route::put('agent/{agent}', 'AgentController@update')->name('agent.update');
-        Route::get('agent/{agent}', 'AgentController@show')->name('agent.show');
-        Route::delete('agent/{agent}', 'AgentController@destroy')->name('agent.destroy');
+        Route::resources([
+            'agent' => 'AgentController',
+            'property' => 'PropertyController',
+            'employee' => 'EmployeeController'
+        ]);
     });
 });
 
@@ -55,9 +51,6 @@ Route::name('employee.')->prefix('employee')->group(function () {
 
     Route::middleware('auth:employee')->group(function () {
         Route::redirect('/', 'home');
-        Route::get('home', 'EmployeeController@index')->name('home');
+        Route::get('home', 'EmployeeController@home')->name('home');
     });
 });
-
-Route::resource('employee', 'EmployeeController');
-Route::resource('customer', 'CustomerController');

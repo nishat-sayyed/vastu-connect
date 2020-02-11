@@ -103,14 +103,17 @@ class AgentController extends Controller
             'commission' => 'required'
         ]));
 
-        return redirect()->route('admin.agent.show', $agent);
+        return redirect()
+            ->route('admin.agent.show', $agent)
+            ->with('success', 'Agent details updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Agent  $agent
+     * @param \App\Agent $agent
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Agent $agent)
     {

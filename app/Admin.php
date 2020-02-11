@@ -29,4 +29,9 @@ class Admin extends Authenticate
     {
         return $this->morphMany('App\Agent', 'agentable');
     }
+
+    public function employees()
+    {
+        return $this->hasMany('App\Employee', 'admin_id');
+    }
 }
