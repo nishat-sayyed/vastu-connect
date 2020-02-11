@@ -23,8 +23,8 @@ class CreatePropertiesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('location');
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->double('latitude')->default('000000');
+            $table->double('longitude')->default('000000');
             $table->string('pincode');
             $table->double('sqft');
             $table->bigInteger('price');
