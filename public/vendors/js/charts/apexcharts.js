@@ -12202,7 +12202,7 @@
 
   /**
    * ApexCharts Line Class responsible for drawing Line / Area Charts.
-   * This class is also responsible for generating values for Bubble/Scatter charts, so need to rename it to Axis Charts to avoid confusions
+   * This class is also responsible for generating values for Bubble/Scatter charts, so need to customer it to Axis Charts to avoid confusions
    * @module Line
    **/
 

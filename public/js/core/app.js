@@ -665,7 +665,7 @@
           a = 0;
 
         // getting json data from file for search results
-        $.getJSON("../../../app-assets/data/" + $filename + ".json", function (
+        $.getJSON("../../../app-customer/data/" + $filename + ".json", function (
           data
         ) {
           for (var i = 0; i < data.listItems.length; i++) {
