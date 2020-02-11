@@ -54,6 +54,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
         Route::get('agent/add', 'AgentController@create')->name('agent.create');
         Route::post('agent', 'AgentController@store')->name('agent.store');
         Route::get('agent', 'AgentController@index')->name('agent.index');
+        Route::get('agent/{agent}/edit', 'AgentController@edit')->name('agent.edit');
+        Route::put('agent/{agent}', 'AgentController@update')->name('agent.update');
+        Route::get('agent/{agent}', 'AgentController@show')->name('agent.show');
+        Route::delete('agent/{agent}', 'AgentController@destroy')->name('agent.destroy');
     });
 });
 

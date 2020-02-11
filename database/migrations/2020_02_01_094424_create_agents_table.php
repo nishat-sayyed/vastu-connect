@@ -21,6 +21,9 @@ class CreateAgentsTable extends Migration
             $table->string('mobile_no');
             $table->string('code');
             $table->double('commission');
+            $table->integer('agentable_id');
+            $table->string('agentable_type');
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

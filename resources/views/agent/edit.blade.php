@@ -1,14 +1,8 @@
 @extends('base')
 
-@section('title', 'New Agent')
+@section('title', 'Edit Agent')
 
 @section('pagecss')
-    <!-- bootstrap file input -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput.min.css" media="all"
-          rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/themes/explorer-fas/theme.css"
-          crossorigin="anonymous">
 @endsection
 
 
@@ -17,18 +11,19 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
+
             <div class="content-header row">
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">New Agent</h2>
+                            <h2 class="content-header-title float-left mb-0">Edit Agent</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a>
                                     </li>
                                     <li class="breadcrumb-item"><a href="{{ route('admin.agent.index') }}">Agents</a>
                                     </li>
-                                    <li class="breadcrumb-item active">New Agent</li>
+                                    <li class="breadcrumb-item active">Edit Agent</li>
                                 </ol>
                             </div>
                         </div>
@@ -42,37 +37,22 @@
                         <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Add new agent</h4>
+                                    <h4 class="card-title">Edit agent</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
                                         <form class="form" method="post" enctype="multipart/form-data"
-                                              action="{{ route('admin.agent.store') }}">
+                                              action="{{ route('admin.agent.update', $agent->id) }}">
                                             @csrf
+                                            @method('put')
                                             <div class="form-body">
                                                 <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-label-group position-relative has-icon-left">
-                                                            <input type="file" id="image"
-                                                                   class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}"
-                                                                   name="image" placeholder="Profile Picture" required>
-                                                            <div class="form-control-position">
-                                                                <i class="feather icon-image"></i>
-                                                            </div>
-                                                            <label for="image">Profile Picture</label>
-                                                            @error('image')
-                                                            <div class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('image') }}</strong>
-                                                            </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
                                                     <div class="col-12">
                                                         <div class="form-label-group position-relative has-icon-left">
                                                             <input type="text" id="name"
                                                                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                                                    name="name" placeholder="Name"
-                                                                   value="{{ old('name') }}" required>
+                                                                   value="{{ $agent->name }}" required>
                                                             <div class="form-control-position">
                                                                 <i class="feather icon-user"></i>
                                                             </div>
@@ -88,8 +68,7 @@
                                                         <div class="form-label-group position-relative has-icon-left">
                                                             <input type="email" id="email"
                                                                    class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                                                   name="email" placeholder="Email"
-                                                                   value="{{ old('email') }}" required>
+                                                                   name="email" placeholder="Email" value="{{ $agent->email }}" required>
                                                             <div class="form-control-position">
                                                                 <i class="feather icon-mail"></i>
                                                             </div>
@@ -105,8 +84,7 @@
                                                         <div class="form-label-group position-relative has-icon-left">
                                                             <input type="tel" id="mobile_no"
                                                                    class="form-control {{ $errors->has('mobile_no') ? 'is-invalid' : '' }}"
-                                                                   name="mobile_no" placeholder="Mobile"
-                                                                   value="{{ old('mobile_no') }}" required>
+                                                                   name="mobile_no" placeholder="Mobile" value="{{ $agent->mobile_no }}" required>
                                                             <div class="form-control-position">
                                                                 <i class="feather icon-smartphone"></i>
                                                             </div>
@@ -120,46 +98,18 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="form-label-group position-relative has-icon-left">
-                                                            <input type="tel" id="mobile_no"
-                                                                   class="form-control {{ $errors->has('commission') ? 'is-invalid' : '' }}"
-                                                                   name="commission" placeholder="Commission"
-                                                                   value="{{ old('commission') }}" required>
+                                                            <input type="tel" id="commission"
+                                                                   class="form-control {{ $errors->has('mobile_no') ? 'is-invalid' : '' }}"
+                                                                   name="commission" placeholder="Commission" value="{{ $agent->commission  }}" required>
                                                             <div class="form-control-position">
                                                                 <i class="feather icon-credit-card"></i>
                                                             </div>
                                                             <label for="commission">Commission</label>
-                                                            @error('mobile_no')
+                                                            @error('commission')
                                                             <div class="invalid-feedback" role="alert">
                                                                 <strong>{{ $errors->first('commission') }}</strong>
                                                             </div>
                                                             @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-label-group position-relative has-icon-left">
-                                                            <input type="password" id="password"
-                                                                   class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
-                                                                   name="password" placeholder="Password" required>
-                                                            <div class="form-control-position">
-                                                                <i class="feather icon-lock"></i>
-                                                            </div>
-                                                            <label for="password">Password</label>
-                                                            @error('password')
-                                                            <div class="invalid-feedback" role="alert">
-                                                                <strong>{{ $errors->first('password') }}</strong>
-                                                            </div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-label-group position-relative has-icon-left">
-                                                            <input type="password" id="password_confirmation"
-                                                                   class="form-control" name="password_confirmation"
-                                                                   placeholder="Confirm Password" required>
-                                                            <div class="form-control-position">
-                                                                <i class="feather icon-lock"></i>
-                                                            </div>
-                                                            <label for="password_confirmation">Confirm Password</label>
                                                         </div>
                                                     </div>
 
@@ -187,18 +137,10 @@
 @endsection
 
 @section('pagescript')
-    <!-- bootstrap file input -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.2/themes/explorer-fas/theme.js"></script>
 @endsection
 
 @section('script')
     <script>
-        $("#image").fileinput({
-            theme: 'fas',
-            initialPreviewShowDelete: true,
-            showUpload: false
-        });
+
     </script>
 @endsection

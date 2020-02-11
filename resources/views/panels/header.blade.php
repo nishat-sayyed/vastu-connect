@@ -14,9 +14,9 @@
                                 class="ficon feather icon-maximize"></i></a></li>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                                                                    href="#" data-toggle="dropdown">
-                            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">John Doe</span><span
+                            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span><span
                                     class="user-status">Available</span></div>
-                            <span><img class="round" src="{{ asset('images/portrait/small/avatar-s-11.jpg') }}"
+                            <span><img class="round" src="{{ asset(\Illuminate\Support\Facades\Auth::user()->image->url) }}"
                                        alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
