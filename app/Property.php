@@ -34,4 +34,9 @@ class Property extends Model
     {
         return $this->morphOne('App\Image', 'imageable');
     }
+
+    public function priceBreakDown()
+    {
+        return $this->hasOne('App\PriceBreakDown');
+    }
 }
